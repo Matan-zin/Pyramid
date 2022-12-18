@@ -37,8 +37,8 @@ void move_the_cube(float* pyr_ver, MovPoints& p, float * current_points)
   for(int i {}, offset {}; i < CUBE_SSE_POINTS; i++, offset += 12 ) 
   {
     p1 = _mm_load_ps(((float *) current_points) + offset + 0);
-	  p2 = _mm_load_ps(((float *) current_points) + offset + 4);
-	  p3 = _mm_load_ps(((float *) current_points) + offset + 8);
+    p2 = _mm_load_ps(((float *) current_points) + offset + 4);
+    p3 = _mm_load_ps(((float *) current_points) + offset + 8);
 
     cp1 = _mm_load_ps(((float *) points) + 0);
     cp2 = _mm_load_ps(((float *) points) + 4);
@@ -105,8 +105,8 @@ int main() {
 try {
     int num_of_cubes = base * base;
     
-	  float * pyr_uvs      = static_cast<float*>(std::aligned_alloc(16, num_of_cubes * CUBE_UV_POINTS * sizeof(float)));
-	  float * pyr_normals  = static_cast<float*>(std::aligned_alloc(16, num_of_cubes * CUBE_POINTS    * sizeof(float)));
+    float * pyr_uvs      = static_cast<float*>(std::aligned_alloc(16, num_of_cubes * CUBE_UV_POINTS * sizeof(float)));
+    float * pyr_normals  = static_cast<float*>(std::aligned_alloc(16, num_of_cubes * CUBE_POINTS    * sizeof(float)));
     float * pyr_vertices = static_cast<float*>(std::aligned_alloc(16, num_of_cubes * CUBE_POINTS    * sizeof(float)));
 
     std::thread cpv_t { compute_pyramid_vertices, pyr_vertices, initial_point_vertices, base };
