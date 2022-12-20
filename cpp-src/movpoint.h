@@ -46,11 +46,11 @@ public:
 
     void change_init_direction() noexcept;
 
-    inline void increment_index() { index += 12; }
+    inline void increment_index() noexcept { index += 12; }
 
-    inline void reset_counter() { counter = 1; }
+    inline void reset_counter() noexcept { counter = 1; }
 
-    int get_counter() { return counter ; }
+    int get_counter() noexcept { return counter ; }
 
     int index;
 

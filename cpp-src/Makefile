@@ -9,3 +9,6 @@ main.o: main.cpp movpoint.h
 
 movpoint.o: movpoint.cpp movpoint.h
 	$(CC) $(CFLAGS) -c movpoint.cpp
+
+valgrind: main
+	valgrind ./main
