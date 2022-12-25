@@ -1,21 +1,24 @@
 #ifndef __vector_3__h
 #define __vector_3__h
 
+#include <xmmintrin.h>
 
 class Vector3 {
 
 private:
-    float * ptr;
-    static inline int I0 = 0, I1 = 1, I2 = 2;
+    __m128 _v3;
 
 public:
-    Vector3(float * p) : ptr(p) {};
 
-    float * get_ptr() noexcept;
+    void load_from(float * ptr);
 
-    void add(const Vector3& v, const float * res) noexcept;
+    void add(__m128 v1, __m128 v2);
 
-    void sub(const Vector3& v, const float * res) noexcept;
+    void sub(__m128 v1, __m128 v2);
+
+    __m128 cross(__m128 v1);
+    
+    __m128 cross_vectors(__m128 v1, __m128 v2);
 
     float length() noexcept;
 
@@ -24,10 +27,6 @@ public:
     Vector3 divide_scalar(const float scalat) noexcept;
 
     Vector3 normalize() noexcept;
-
-    Vector3 cross(const Vector3& v) noexcept;
-
-    Vector3 cross_vectors(const Vector3& v1, const Vector3& v2) noexcept;
 };
 
 #endif

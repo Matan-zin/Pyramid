@@ -2,7 +2,7 @@
 #define __data_points_h
 
 static float 
-initial_point_vertices[108] 
+initial_cube_points_vertices[108] 
 __attribute__ ((aligned (16))) = {
 
     -2.0f, -2.0f,  2.0f,
@@ -53,7 +53,7 @@ __attribute__ ((aligned (16))) = {
 
 
 static float 
-initial_point_uvs[72] 
+initial_cube_points_uvs[72] 
 __attribute__ ((aligned (16))) = {
 	
 	0.0f, 0.0f,

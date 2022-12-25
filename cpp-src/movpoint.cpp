@@ -10,9 +10,9 @@ void inline _fill_array_with_zero(float * arr)
 {
     __m128 zero = _mm_setzero_ps();
 
-    _mm_store_ps(((float *) arr) + 0, zero);
-    _mm_store_ps(((float *) arr) + 4, zero);
-    _mm_store_ps(((float *) arr) + 8, zero);
+    _mm_store_ps(arr + 0, zero);
+    _mm_store_ps(arr + 4, zero);
+    _mm_store_ps(arr + 8, zero);
 }
 
 // --------------------------------------------------------------------------------------------------------------
