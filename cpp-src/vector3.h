@@ -20,13 +20,13 @@ public:
     
     __m128 cross_vectors(__m128 v1, __m128 v2);
 
-    float length() noexcept;
+    __m128 length();
 
-    Vector3 multiply_scalar(const float scalar) noexcept;
+    __m128 multiply_scalar(__m128 v1);
 
-    Vector3 divide_scalar(const float scalat) noexcept;
+    __m128 divide_scalar(__m128 v1);
 
-    Vector3 normalize() noexcept;
+    __m128 normalize();
 };
 
 #endif
