@@ -2,6 +2,13 @@
 
 #include "vector3.h"
 
+constexpr int SIMD_NAN = 15;
+
+inline __m128 _set_mm_to_one()
+{
+    return _mm_set_ps(1.0f,1.0f,1.0f,1.0f);
+}
+
 void Vector3::load_from(float * ptr) 
 {
     _v3 = _mm_load_ps(ptr);
@@ -23,7 +30,7 @@ __m128 Vector3::cross(__m128 v3)
 }
 
 __m128 Vector3::cross_vectors(__m128 x, __m128 y)
-/**
+/** Calculate cross product of two vectors
  * x2 * y3 - x3 * y2
  * x3 * y1 - x1 * y3
  * x1 * y2 - x2 * y1
@@ -53,13 +60,15 @@ __m128 Vector3::multiply_scalar(__m128 v1)
 {
     return _mm_mul_ps(
         _mm_mul_ps(_v3 , v1),
-        _mm_set_ps(1.0f,1.0f,1.0f,1.0f)
+        _set_mm_to_one()
         );
 }
 
 __m128 Vector3::divide_scalar(__m128 v1)
 {
-    // return 
+    return multiply_scalar( 
+        _mm_div_ps( _set_mm_to_one() , v1 )
+    );
 }
 
 __m128 Vector3::normalize()
@@ -70,9 +79,9 @@ __m128 Vector3::normalize()
 
     int mask = _mm_movemask_ps(cmp);
 
-    if( mask == 15 ) { // 15 if all NAN
-        divide_scalar( _mm_set_ps(1.0f,1.0f,1.0f,1.0f) );
+    if( mask == SIMD_NAN ) {
+        return divide_scalar( _set_mm_to_one() );
     } else {
-        divide_scalar( len );
+        return divide_scalar( len );
     }
 }
