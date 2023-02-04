@@ -3,7 +3,7 @@
 
 #include "movpoint.h"
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void inline _fill_array_with_zero(float * arr)
 // Array size is known in advance (12)
@@ -15,7 +15,7 @@ void inline _fill_array_with_zero(float * arr)
     _mm_store_ps(arr + 8, zero);
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void change_xy_point(float * arr, float val) 
 {
@@ -25,7 +25,7 @@ void change_xy_point(float * arr, float val)
     arr[1] = arr[4] = arr[7] = arr[10] = val;
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void change_x_point(float * arr, float val) 
 {
@@ -34,7 +34,7 @@ void change_x_point(float * arr, float val)
     arr[0] = arr[3] = arr[6] = arr[9] = val;
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void change_y_point(float * arr, float val) 
 {
@@ -43,7 +43,7 @@ void change_y_point(float * arr, float val)
     arr[1] = arr[4] = arr[7] = arr[10] = val;
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void change_z_point(float * arr, float val) 
 {
@@ -52,7 +52,7 @@ void change_z_point(float * arr, float val)
     arr[2] = arr[5] = arr[8] = arr[11] = val;
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void MovPoints::change_direction() noexcept 
 {
@@ -91,28 +91,28 @@ void MovPoints::change_direction() noexcept
     }
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void MovPoints::change_up_direction() noexcept 
 {
     change_xy_point(p.points, 4.0f);
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void MovPoints::change_init_direction() noexcept 
 {
     change_x_point(p.points, 4.0f);
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 float * MovPoints::get_points() noexcept 
 {
     return p.points;
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 void MovPoints::print_points() noexcept 
 {
@@ -123,7 +123,7 @@ void MovPoints::print_points() noexcept
     }
 }
 
-// --------------------------------------------------------------------------------------------------------------
+
 
 int MovPoints::calc_side(int size) noexcept
 {

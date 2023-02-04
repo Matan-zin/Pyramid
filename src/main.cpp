@@ -17,12 +17,13 @@ constexpr int CUBE_POINTS = 108;
 constexpr int CUBE_UV_POINTS = 72;
 constexpr int CUBE_SSE_POINTS = 9;
 
-
+// TODO: need to implement
 void compute_pyramid_uvs()
 {
 
 }
 
+// TODO: need to implement
 void compute_pyramid_normals(float * pyramid_normals, SharedData * share) 
 {
   int x = 0, temp = -1;
@@ -149,12 +150,16 @@ try {
     std::free(pyramid_normals);
     std::free(pyramid_uvs);
     return 0;
+
   } catch(std::exception& e) {
+
     std::free(pyramid_vertices);
     std::free(pyramid_normals);
     std::free(pyramid_uvs);
     return 1;
+
   } catch(...) {
+    
     std::free(pyramid_vertices);
     std::free(pyramid_normals);
     std::free(pyramid_uvs);
